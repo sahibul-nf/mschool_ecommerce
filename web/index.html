@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <!--
     If you are serving your web app in a path other than the root, change the
@@ -26,12 +27,18 @@
   <meta name="apple-mobile-web-app-title" content="flutter_slides_portrait">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
+  <!-- Display PWA fullscreen -->
+  <meta name="viewport" content="width=device-width; initial-scale=1; viewport-fit=cover">
+  <!-- possible content values: default, black or black-translucent -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>flutter_slides_portrait</title>
   <link rel="manifest" href="manifest.json">
 </head>
+
 <body>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
@@ -39,6 +46,7 @@
   <script>
     var serviceWorkerVersion = null;
     var scriptLoaded = false;
+
     function loadMainDartJs() {
       if (scriptLoaded) {
         return;
@@ -101,4 +109,5 @@
     }
   </script>
 </body>
+
 </html>
