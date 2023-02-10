@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mschool_ecommerce/state_managment/dark_mode_state_manager.dart';
+import 'package:mschool_ecommerce/themes/colors.dart';
 
 class WelcomePage extends ConsumerWidget {
   // final void Function() startLesson;
@@ -14,10 +15,12 @@ class WelcomePage extends ConsumerWidget {
     double height = MediaQuery.of(context).size.height;
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
+
+    final isDarkMode = ref.watch(darkModeStateManagerProvider);
     return Scaffold(
       appBar: AppBar(
         shape: const Border(top: BorderSide(color: Colors.green, width: 3)),
-        backgroundColor: Theme.of(context).cardColor,
+        backgroundColor: isDarkMode ? AppColors.black : Colors.white,
         centerTitle: false,
         titleSpacing: 0,
         shadowColor: Theme.of(context).shadowColor,

@@ -5,6 +5,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/pages/content_page.dart';
+import 'package:mschool_ecommerce/state_managment/dark_mode_state_manager.dart';
+import 'package:mschool_ecommerce/themes/colors.dart';
 
 import 'pages/welcome_page.dart';
 
@@ -58,8 +60,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isDarkMode = ref.watch(darkModeStateManagerProvider);
+
     return Scaffold(
-      backgroundColor: Theme.of(context).cardColor,
+      backgroundColor:
+          isDarkMode ? AppColors.black : Theme.of(context).cardColor,
       body: PageView.builder(
         onPageChanged: (int newpage) {
           setState(() {
