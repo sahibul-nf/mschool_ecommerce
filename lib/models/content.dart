@@ -11,38 +11,45 @@ String slideToJson(Content data) => json.encode(data.toJson());
 class Content {
   Content({
     this.title,
-    this.content,
+    this.shortDescription,
+    this.description,
     this.image,
     this.imageDark,
   });
 
   final String? title;
-  final String? content;
+  final String? shortDescription;
+  final String? description;
   final String? image;
   final String? imageDark;
 
   Content copyWith({
     String? title,
-    String? content,
+    String? shortDescription,
+    String? description,
     String? image,
+    String? imageDark,
   }) =>
       Content(
         title: title ?? this.title,
-        content: content ?? this.content,
+        description: description ?? this.description,
+        shortDescription: shortDescription ?? this.shortDescription,
         image: image ?? this.image,
         imageDark: imageDark ?? imageDark,
       );
 
   factory Content.fromJson(Map<String, dynamic> json) => Content(
         title: json["title"],
-        content: json["content"],
+        shortDescription: json["short_description"],
+        description: json["description"],
         image: json["image"],
         imageDark: json["image_dark"],
       );
 
   Map<String, dynamic> toJson() => {
         "title": title,
-        "content": content,
+        "short_description": shortDescription,
+        "description": description,
         "image": image,
         "image_dark": imageDark,
       };

@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/pages/content_page.dart';
+import 'package:mschool_ecommerce/pages/content_preview_page.dart';
 
 final tutorialProvider =
     ChangeNotifierProvider<TutorialProvider>((ref) => TutorialProvider());
@@ -17,7 +18,10 @@ class TutorialProvider extends ChangeNotifier {
 
     var list = <Widget>[];
     for (var v in (jsonResult as List)) {
-      list.add(ContentPage(Content.fromJson(v)));
+      list.add(ContentPreviewPage(
+        Content.fromJson(v),
+        isTour: true,
+      ));
     }
 
     pages.addAll(list.reversed);
