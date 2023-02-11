@@ -16,40 +16,39 @@ class ContentPage extends ConsumerWidget {
         MediaQuery.of(context).orientation == Orientation.portrait;
     final isDarkMode = ref.watch(darkModeProvider);
 
-    return SafeArea(
-      child: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: Column(
-          children: [
-            Image.asset(
-              isDarkMode ? content.imageDark! : content.image!,
-              fit: BoxFit.cover,
-              height:
-                  MediaQuery.of(context).size.height * (isPortrait ? 0.3 : 0.5),
-            ),
-            const SizedBox(height: 20),
-            Text(
-              content.title!,
-              textAlign: TextAlign.center,
-              style: GoogleFonts.roboto(
-                textStyle: TextStyle(
-                  fontFamily: "RobotoSerif",
-                  fontWeight: FontWeight.bold,
-                  color: Theme.of(context).primaryColor,
-                  fontSize: 20,
-                ),
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          Image.asset(
+            isDarkMode ? content.imageDark! : content.image!,
+            fit: BoxFit.cover,
+            height:
+                MediaQuery.of(context).size.height * (isPortrait ? 0.3 : 0.5),
+          ),
+          const SizedBox(height: 20),
+          Text(
+            content.title!,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.roboto(
+              textStyle: TextStyle(
+                fontFamily: "RobotoSerif",
+                fontWeight: FontWeight.bold,
+                color: Theme.of(context).primaryColor,
+                fontSize: 20,
               ),
             ),
-            const SizedBox(height: 30),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: MarkdownGenerator(
-                data: content.content!,
-                styleConfig: styleConfig(context),
-              ).widgets!,
-            )
-          ],
-        ),
+          ),
+          const SizedBox(height: 30),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: MarkdownGenerator(
+              data: content.content!,
+              styleConfig: styleConfig(context),
+            ).widgets!,
+          ),
+        ],
       ),
     );
   }
