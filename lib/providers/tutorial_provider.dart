@@ -58,9 +58,9 @@ class TutorialProvider extends ChangeNotifier {
   }
 
   // set current page to next page every one second
-  void setCurrentPageToNextPage() {
+  void setCurrentPageToNextPage() async {
     // setiap 1 detik
-    Future.delayed(const Duration(seconds: 1), () {
+    await Future.delayed(const Duration(seconds: 1), () {
       // jika current page kurang dari jumlah page
       if (_currentPage < _pages.length - 1) {
         // maka current page ditambah 1
@@ -68,8 +68,8 @@ class TutorialProvider extends ChangeNotifier {
         // dan page controller diarahkan ke current page
         _pageController.animateToPage(
           _currentPage,
-          duration: const Duration(milliseconds: 1000),
-          curve: Curves.fastOutSlowIn,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeOut,
         );
         notifyListeners();
 
