@@ -17,7 +17,10 @@ class TutorialProvider extends ChangeNotifier {
 
     var list = <Widget>[];
     for (var v in (jsonResult as List)) {
-      list.add(ContentPage(Content.fromJson(v)));
+      list.add(ContentPage(
+        Content.fromJson(v),
+        isTour: true,
+      ));
     }
 
     pages.addAll(list.reversed);

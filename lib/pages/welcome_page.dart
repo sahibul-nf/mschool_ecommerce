@@ -202,7 +202,7 @@ class WelcomePage extends ConsumerWidget {
         ),
         color: Colors.blue,
         width: double.infinity,
-        height: 45,
+        height: 50,
         child: Align(
           alignment: Alignment.centerLeft,
           child: AutoSizeText(

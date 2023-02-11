@@ -20,13 +20,6 @@ class MainScreen extends ConsumerStatefulWidget {
 }
 
 class _MainScreenState extends ConsumerState<MainScreen> {
-  // void startLesson() {
-  //   pageController.nextPage(
-  //     duration: const Duration(milliseconds: 3),
-  //     curve: Curves.fastOutSlowIn,
-  //   );
-  // }
-
   int _currentPage = 0;
   List<Widget> pages = [];
 
