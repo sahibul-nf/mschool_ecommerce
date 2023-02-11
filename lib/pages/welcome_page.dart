@@ -2,7 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mschool_ecommerce/state_managment/dark_mode_state_manager.dart';
+import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
 import 'package:mschool_ecommerce/themes/colors.dart';
 
 class WelcomePage extends ConsumerWidget {
@@ -16,7 +16,7 @@ class WelcomePage extends ConsumerWidget {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
 
-    final isDarkMode = ref.watch(darkModeStateManagerProvider);
+    final isDarkMode = ref.watch(darkModeProvider);
     return Scaffold(
       appBar: AppBar(
         shape: const Border(top: BorderSide(color: Colors.green, width: 3)),
@@ -69,9 +69,8 @@ class WelcomePage extends ConsumerWidget {
                             ? Colors.black
                             : Colors.white,
                       ),
-                      onSelected: (String value) => ref
-                          .read(darkModeStateManagerProvider.notifier)
-                          .switchDarkMode(),
+                      onSelected: (String value) =>
+                          ref.read(darkModeProvider.notifier).switchDarkMode(),
                       itemBuilder: (BuildContext context) {
                         return {
                           Theme.of(context).brightness == Brightness.light

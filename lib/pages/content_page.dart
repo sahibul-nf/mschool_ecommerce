@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown_widget/markdown_widget.dart';
 import 'package:mschool_ecommerce/markdown_style_config.dart';
 import 'package:mschool_ecommerce/models/content.dart';
-import 'package:mschool_ecommerce/state_managment/dark_mode_state_manager.dart';
+import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
 
 class ContentPage extends ConsumerWidget {
   const ContentPage(this.content, {Key? key}) : super(key: key);
@@ -14,7 +14,7 @@ class ContentPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     bool isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
-    final isDarkMode = ref.watch(darkModeStateManagerProvider);
+    final isDarkMode = ref.watch(darkModeProvider);
 
     return SafeArea(
       child: SingleChildScrollView(

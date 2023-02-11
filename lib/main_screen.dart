@@ -5,7 +5,9 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/pages/content_page.dart';
-import 'package:mschool_ecommerce/state_managment/dark_mode_state_manager.dart';
+import 'package:mschool_ecommerce/pages/tutorial_page.dart';
+import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
+import 'package:mschool_ecommerce/providers/tutorial_provider.dart' as tp;
 import 'package:mschool_ecommerce/themes/colors.dart';
 
 import 'pages/welcome_page.dart';
@@ -44,6 +46,12 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     loadData();
   }
 
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
   Future<void> loadData() async {
     String data = await rootBundle.loadString("assets/contents.json");
     final jsonResult = jsonDecode(data); //latest Dart
@@ -60,22 +68,26 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final isDarkMode = ref.watch(darkModeStateManagerProvider);
+    final isDarkMode = ref.watch(darkModeProvider);
+    final isFirstTimeOpenedApp =
+        ref.watch(tp.tutorialProvider.select((value) => value.firstTime));
 
     return Scaffold(
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
-      body: PageView.builder(
-        onPageChanged: (int newpage) {
-          setState(() {
-            _currentPage = newpage;
-          });
-        },
-        scrollDirection: Axis.horizontal,
-        controller: pageController,
-        itemCount: pages.length,
-        itemBuilder: (context, index) => pages[index],
-      ),
+      body: isFirstTimeOpenedApp
+          ? const TutorialPage()
+          : PageView.builder(
+              onPageChanged: (int newpage) {
+                setState(() {
+                  _currentPage = newpage;
+                });
+              },
+              scrollDirection: Axis.horizontal,
+              controller: pageController,
+              itemCount: pages.length,
+              itemBuilder: (context, index) => pages[index],
+            ),
     );
   }
 }
