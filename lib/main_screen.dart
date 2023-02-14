@@ -39,12 +39,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     loadData();
   }
 
-  @override
-  void dispose() {
-    pageController.dispose();
-    super.dispose();
-  }
-
   Future<void> loadData() async {
     String data = await rootBundle.loadString("assets/contents.json");
     final jsonResult = jsonDecode(data); //latest Dart
@@ -57,6 +51,12 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     setState(() {
       pages.addAll(list);
     });
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
   }
 
   @override

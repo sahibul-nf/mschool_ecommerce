@@ -38,6 +38,13 @@ class TutorialProvider extends ChangeNotifier {
     setCurrentPageToNextPage();
   }
 
+  @override
+  void dispose() {
+    _pageController.dispose();
+
+    super.dispose();
+  }
+
   // first time app is opened
   bool _firstTime = true;
   bool get firstTime => _firstTime;
