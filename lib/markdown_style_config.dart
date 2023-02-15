@@ -13,6 +13,7 @@ StyleConfig styleConfig(BuildContext context, {bool autoSizeText = false}) =>
             fontFamily: "RobotoSerif",
             fontWeight: FontWeight.normal,
             color: Theme.of(context).primaryColor,
+            height: 1.5,
             fontSize: autoSizeText
                 ? (MediaQuery.of(context).size.longestSide /
                         MediaQuery.of(context).size.shortestSide) *
@@ -27,6 +28,7 @@ StyleConfig styleConfig(BuildContext context, {bool autoSizeText = false}) =>
             fontFamily: "RobotoSerif",
             fontWeight: FontWeight.normal,
             color: Theme.of(context).primaryColor,
+            height: 1.5,
             fontSize: autoSizeText
                 ? (MediaQuery.of(context).size.longestSide /
                         MediaQuery.of(context).size.shortestSide) *
@@ -46,6 +48,7 @@ StyleConfig styleConfig(BuildContext context, {bool autoSizeText = false}) =>
             fontWeight: FontWeight.normal,
             color: const Color(0xffc16464),
             decoration: TextDecoration.underline,
+            height: 1.5,
             fontSize: autoSizeText
                 ? (MediaQuery.of(context).size.longestSide /
                         MediaQuery.of(context).size.shortestSide) *
@@ -60,8 +63,10 @@ StyleConfig styleConfig(BuildContext context, {bool autoSizeText = false}) =>
               style: GoogleFonts.roboto(
                 textStyle: TextStyle(
                   fontFamily: "RobotoSerif",
-                  color: const Color(0xffc16464),
                   fontWeight: FontWeight.bold,
+                  color: const Color(0xffc16464),
+                  decoration: TextDecoration.none,
+                  height: 1.032,
                   fontSize: autoSizeText
                       ? (MediaQuery.of(context).size.longestSide /
                               MediaQuery.of(context).size.shortestSide) *
@@ -80,6 +85,7 @@ StyleConfig styleConfig(BuildContext context, {bool autoSizeText = false}) =>
                   fontFamily: "RobotoSerif",
                   color: Colors.pink[300],
                   fontWeight: FontWeight.normal,
+                  height: 1.032,
                   fontSize: autoSizeText
                       ? (MediaQuery.of(context).size.longestSide /
                               MediaQuery.of(context).size.shortestSide) *
