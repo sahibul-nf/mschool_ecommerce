@@ -1,11 +1,14 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:markdown_widget/markdown_widget.dart';
-import 'package:mschool_ecommerce/markdown_style_config.dart';
+import 'package:mschool_ecommerce/custom_tags.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
 import 'package:mschool_ecommerce/themes/colors.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContentDetailPage extends ConsumerWidget {
   const ContentDetailPage(
@@ -52,13 +55,30 @@ class ContentDetailPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 30),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: MarkdownGenerator(
+            Center(
+              child: MarkdownBody(
+                softLineBreak: true,
+                selectable: true,
                 data: content.description!,
-                styleConfig: styleConfig(context),
-              ).widgets!,
+                styleSheet: markdownStyleSheet(context),
+                builders: markdownBuilders(context),
+                inlineSyntaxes: customInlineSyntaxes,
+                onTapLink: (text, href, title) {
+                  log('Link tapped: $text, $href, $title');
+                  launchUrl(Uri.parse(href!));
+                },
+              ),
             ),
+            // Column(
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: MarkdownGenerator(
+            //     // generators: [customTextWithTag],
+            //     config: markdownConfig(context),
+            //     textGenerator: (node, config, visitor) {
+            //       return CustomTextNode(node, config, visitor);
+            //     },
+            //   ).buildWidgets(content.description!),
+            // ),
             const SizedBox(height: 40),
           ],
         ),
