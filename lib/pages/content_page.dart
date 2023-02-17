@@ -25,12 +25,10 @@ class ContentPage extends ConsumerWidget {
         MediaQuery.of(context).orientation == Orientation.portrait;
     final isDarkMode = ref.watch(darkModeProvider);
 
-    String text =
-        """Er muss <red>genau abwägen</red>, welche Produkte bei den Kunden""";
-
     return Stack(
       children: [
         SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
           child: Column(
             children: [
