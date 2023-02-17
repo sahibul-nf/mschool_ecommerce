@@ -50,22 +50,27 @@ class ContentDetailPage extends ConsumerWidget {
                   fontFamily: "RobotoSerif",
                   fontWeight: FontWeight.bold,
                   color: Theme.of(context).primaryColor,
+                  height: 1.5,
                   fontSize: 20,
                 ),
               ),
             ),
             const SizedBox(height: 30),
             if (content.subtitle!.isNotEmpty)
-              Text(
-                content.subtitle!,
-                style: GoogleFonts.roboto(
-                  textStyle: const TextStyle(
-                    fontFamily: "RobotoSerif",
-                    fontWeight: FontWeight.bold,
-                    color: Color(0xffc16464),
-                    fontSize: 18,
+              Row(
+                children: [
+                  Text(
+                    content.subtitle!,
+                    style: GoogleFonts.roboto(
+                      textStyle: const TextStyle(
+                        fontFamily: "RobotoSerif",
+                        fontWeight: FontWeight.bold,
+                        color: Color(0xffc16464),
+                        fontSize: 18,
+                      ),
+                    ),
                   ),
-                ),
+                ],
               ),
             if (content.subtitle!.isNotEmpty) const SizedBox(height: 10),
             Center(
