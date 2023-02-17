@@ -55,6 +55,19 @@ class ContentDetailPage extends ConsumerWidget {
               ),
             ),
             const SizedBox(height: 30),
+            if (content.subtitle!.isNotEmpty)
+              Text(
+                content.subtitle!,
+                style: GoogleFonts.roboto(
+                  textStyle: const TextStyle(
+                    fontFamily: "RobotoSerif",
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xffc16464),
+                    fontSize: 18,
+                  ),
+                ),
+              ),
+            if (content.subtitle!.isNotEmpty) const SizedBox(height: 10),
             Center(
               child: MarkdownBody(
                 softLineBreak: true,
@@ -69,16 +82,6 @@ class ContentDetailPage extends ConsumerWidget {
                 },
               ),
             ),
-            // Column(
-            //   crossAxisAlignment: CrossAxisAlignment.start,
-            //   children: MarkdownGenerator(
-            //     // generators: [customTextWithTag],
-            //     config: markdownConfig(context),
-            //     textGenerator: (node, config, visitor) {
-            //       return CustomTextNode(node, config, visitor);
-            //     },
-            //   ).buildWidgets(content.description!),
-            // ),
             const SizedBox(height: 40),
           ],
         ),

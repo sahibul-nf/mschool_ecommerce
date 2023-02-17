@@ -19,7 +19,7 @@ class CustomElementBuilder extends MarkdownElementBuilder {
           text: text,
           style: pStyle(
             context,
-            color: Colors.pink[400],
+            color: const Color(0xffc16464),
           ),
         ),
       );

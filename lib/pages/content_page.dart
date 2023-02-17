@@ -32,18 +32,19 @@ class ContentPage extends ConsumerWidget {
       children: [
         SingleChildScrollView(
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Center(
-            child: Column(
-              children: [
-                const SizedBox(height: 20),
-                Image.asset(
-                  isDarkMode ? content.imageDark! : content.image!,
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height *
-                      (isPortrait ? 0.4 : 0.5),
-                ),
-                const SizedBox(height: 20),
-                Text(
+          child: Column(
+            children: [
+              const SizedBox(height: 20),
+              Image.asset(
+                isDarkMode ? content.imageDark! : content.image!,
+                fit: BoxFit.cover,
+                height: MediaQuery.of(context).size.height *
+                    (isPortrait ? 0.4 : 0.5),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Text(
                   content.title!,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.roboto(
@@ -51,77 +52,85 @@ class ContentPage extends ConsumerWidget {
                       fontFamily: "RobotoSerif",
                       fontWeight: FontWeight.bold,
                       color: Theme.of(context).primaryColor,
+                      height: 1.5,
                       fontSize: 20,
                     ),
                   ),
                 ),
-                const SizedBox(height: 30),
-                Center(
-                  child: MarkdownBody(
-                    softLineBreak: true,
-                    selectable: true,
-                    data: content.shortDescription!,
-                    styleSheet: markdownStyleSheet(context),
-                    builders: markdownBuilders(context),
-                    inlineSyntaxes: customInlineSyntaxes,
-                    onTapLink: (text, href, title) {
-                      log('Link tapped: $text, $href, $title');
-                      launchUrl(Uri.parse(href!));
-                    },
-                  ),
+              ),
+              const SizedBox(height: 30),
+              if (content.subtitle!.isNotEmpty)
+                Row(
+                  children: [
+                    Text(
+                      content.subtitle!,
+                      style: GoogleFonts.roboto(
+                        textStyle: const TextStyle(
+                          fontFamily: "RobotoSerif",
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xffc16464),
+                          fontSize: 18,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                // Column(
-                //   crossAxisAlignment: CrossAxisAlignment.start,
-                //   children: MarkdownGenerator(
-                //     // generators: [customTextWithTag],
-                //     config: markdownConfig(context),
-                //     onNodeAccepted: (node, nodeIndex) {
-                //       print('Node accepted: $node, $nodeIndex');
-                //     },
-                //     textGenerator: (node, config, visitor) =>
-                //         customTextGenerator(node, config, visitor),
-                //   ).buildWidgets(content.shortDescription!),
-                // ),
-              ],
-            ),
+              if (content.subtitle!.isNotEmpty) const SizedBox(height: 10),
+              Center(
+                child: MarkdownBody(
+                  softLineBreak: true,
+                  selectable: true,
+                  data: content.shortDescription!,
+                  styleSheet: markdownStyleSheet(context),
+                  builders: markdownBuilders(context),
+                  inlineSyntaxes: customInlineSyntaxes,
+                  onTapLink: (text, href, title) {
+                    log('Link tapped: $text, $href, $title');
+                    launchUrl(Uri.parse(href!));
+                  },
+                ),
+              ),
+            ],
           ),
         ),
         // read more button
-        Align(
-          alignment: const Alignment(0, .9),
-          child: SizedBox(
-            height: 55,
-            width: MediaQuery.of(context).size.width * 0.9,
-            child: ElevatedButton(
-              onPressed: () {
-                if (!isTour) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => ContentDetailPage(content),
+        if (!isTour)
+          Align(
+            alignment: const Alignment(0, .95),
+            child: SizedBox(
+              height: 50,
+              // width: MediaQuery.of(context).size.width * 0.9,
+              child: ElevatedButton(
+                onPressed: () {
+                  if (!isTour) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ContentDetailPage(content),
+                      ),
+                    );
+                  }
+                },
+                child: Text(
+                  "Read more",
+                  style: GoogleFonts.roboto(
+                    textStyle: const TextStyle(
+                      fontFamily: "RobotoSerif",
+                      fontSize: 16,
                     ),
-                  );
-                }
-              },
-              child: Text(
-                "Read more",
-                style: GoogleFonts.roboto(
-                  textStyle: const TextStyle(
-                    fontFamily: "RobotoSerif",
-                    fontSize: 16,
                   ),
                 ),
-              ),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.blue,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.blue,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  elevation: 0,
+                  padding: const EdgeInsets.symmetric(horizontal: 40),
                 ),
-                elevation: 0,
               ),
             ),
-          ),
-        )
+          )
       ],
     );
   }
