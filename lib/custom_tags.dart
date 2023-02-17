@@ -98,7 +98,9 @@ Map<String, MarkdownElementBuilder> markdownBuilders(BuildContext context) {
 
 MarkdownStyleSheet markdownStyleSheet(BuildContext context) {
   return MarkdownStyleSheet(
-    p: pStyle(context),
+    p: pStyle(
+      context,
+    ),
     a: pStyle(context, decoration: TextDecoration.underline),
     listBullet: pStyle(context, fontWeight: FontWeight.bold),
     listIndent: 16,
