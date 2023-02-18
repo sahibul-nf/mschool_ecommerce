@@ -1,11 +1,11 @@
 {
-    "name": "flutter_slides_portrait",
-    "short_name": "flutter_slides_portrait",
+    "name": "mschool",
+    "short_name": "mschool",
     "start_url": "index.html?standalone=true",
     "display": "standalone",
     "background_color": "white",
     "theme_color": "black",
-    "description": "A new Flutter project.",
+    "description": "mschool",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
