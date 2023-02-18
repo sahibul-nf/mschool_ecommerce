@@ -1,8 +1,5 @@
-import 'dart:developer';
-
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'main_screen.dart';
@@ -11,13 +8,18 @@ import 'providers/dark_mode_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await SystemChrome.setSystemUIChangeCallback(
-      (systemOverlaysAreVisible) async {
-    log('CHANGED: $systemOverlaysAreVisible');
-  });
+  // await SystemChrome.setSystemUIChangeCallback(
+  //     (systemOverlaysAreVisible) async {
+  //   log('CHANGED: $systemOverlaysAreVisible');
+  // });
 
   runApp(
-    DevicePreview(builder: (context) => const ProviderScope(child: MyApp())),
+    DevicePreview(
+      enabled: false,
+      builder: (context) => const ProviderScope(
+        child: MyApp(),
+      ),
+    ),
   );
 }
 
