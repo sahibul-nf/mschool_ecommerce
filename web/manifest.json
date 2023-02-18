@@ -1,33 +1,33 @@
 {
     "name": "flutter_slides_portrait",
     "short_name": "flutter_slides_portrait",
-    "start_url": ".",
+    "start_url": "index.html?standalone=true",
     "display": "standalone",
-    "background_color": "#0175C2",
-    "theme_color": "#0175C2",
+    "background_color": "white",
+    "theme_color": "black",
     "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
-            "sizes": "192x192",
+            "src": "icons/ms-icon-150x150w.png",
+            "sizes": "150x150",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-512.png",
-            "sizes": "512x512",
+            "src": "icons/ms-icon-310x310w.png",
+            "sizes": "310x310",
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-maskable-192.png",
-            "sizes": "192x192",
+            "src": "icons/ms-icon-150x150w.png",
+            "sizes": "150x150",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "icons/Icon-maskable-512.png",
-            "sizes": "512x512",
+            "src": "icons/ms-icon-310x310w.png",
+            "sizes": "310x310",
             "type": "image/png",
             "purpose": "maskable"
         }

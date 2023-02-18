@@ -61,6 +61,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
     final isDarkMode = ref.watch(darkModeProvider);
     final isFirstTimeOpenedApp =
         ref.watch(tp.tutorialProvider.select((value) => value.firstTime));
@@ -68,19 +70,23 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     return Scaffold(
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
-      body: isFirstTimeOpenedApp
-          ? const TutorialPage()
-          : PageView.builder(
-              onPageChanged: (int newpage) {
-                setState(() {
-                  _currentPage = newpage;
-                });
-              },
-              scrollDirection: Axis.horizontal,
-              controller: pageController,
-              itemCount: pages.length,
-              itemBuilder: (context, index) => pages[index],
-            ),
+      body: SafeArea(
+        top: false,
+        bottom: false,
+        child: isFirstTimeOpenedApp
+            ? const TutorialPage()
+            : PageView.builder(
+                onPageChanged: (int newpage) {
+                  setState(() {
+                    _currentPage = newpage;
+                  });
+                },
+                scrollDirection: Axis.horizontal,
+                controller: pageController,
+                itemCount: pages.length,
+                itemBuilder: (context, index) => pages[index],
+              ),
+      ),
     );
   }
 }
