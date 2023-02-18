@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -5,9 +7,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'main_screen.dart';
 import 'providers/dark_mode_provider.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+  await SystemChrome.setSystemUIChangeCallback(
+      (systemOverlaysAreVisible) async {
+    log('CHANGED: $systemOverlaysAreVisible');
+  });
 
   runApp(const ProviderScope(child: MyApp()));
 }
