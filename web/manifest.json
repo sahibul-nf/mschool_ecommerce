@@ -1,6 +1,6 @@
 {
-    "name": "mschool",
-    "short_name": "mschool",
+    "name": "flutter_slides_portrait",
+    "short_name": "flutter_slides_portrait",
     "start_url": "index.html?standalone=true",
     "display": "standalone",
     "background_color": "white",
