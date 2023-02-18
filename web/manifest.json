@@ -10,8 +10,13 @@
     "prefer_related_applications": false,
     "icons": [
         {
-            "src": "icons/Icon-192.png",
+            "src": "icons/android-icon-192x192.png",
             "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/ms-icon-310x310w.png",
+            "sizes": "310x310",
             "type": "image/png"
         },
         {
@@ -20,8 +25,14 @@
             "type": "image/png"
         },
         {
-            "src": "icons/Icon-maskable-192.png",
+            "src": "icons/android-icon-maskable-192x192.png",
             "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/ms-icon-310x310w.png",
+            "sizes": "310x310",
             "type": "image/png",
             "purpose": "maskable"
         },
