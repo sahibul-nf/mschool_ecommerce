@@ -7,7 +7,7 @@ import 'providers/dark_mode_provider.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
 
   runApp(const ProviderScope(child: MyApp()));
 }
