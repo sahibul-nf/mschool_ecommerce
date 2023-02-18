@@ -8,11 +8,6 @@ import 'providers/dark_mode_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // await SystemChrome.setSystemUIChangeCallback(
-  //     (systemOverlaysAreVisible) async {
-  //   log('CHANGED: $systemOverlaysAreVisible');
-  // });
-
   runApp(
     DevicePreview(
       enabled: false,
