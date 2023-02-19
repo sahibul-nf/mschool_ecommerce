@@ -66,7 +66,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         ref.watch(tp.tutorialProvider.select((value) => value.firstTime));
 
     return Scaffold(
-      extendBody: true,
+      primary: false,
       resizeToAvoidBottomInset: false,
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
