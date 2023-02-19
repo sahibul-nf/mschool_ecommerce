@@ -2,7 +2,7 @@
     "name": "mschool",
     "short_name": "mschool",
     "start_url": "/?standalone=true",
-    "display": "standalone",
+    "display": "fullscreen",
     "background_color": "white",
     "theme_color": "black",
     "description": "mschool",
