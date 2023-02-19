@@ -1,8 +1,8 @@
 {
     "name": "mschool",
     "short_name": "mschool",
-    "start_url": "index.html?standalone=true",
-    "display": "standalone",
+    "start_url": "index.html",
+    "display": "fullscreen",
     "background_color": "white",
     "theme_color": "black",
     "description": "mschool",
