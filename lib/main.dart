@@ -1,5 +1,7 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'main_screen.dart';
@@ -8,9 +10,13 @@ import 'providers/dark_mode_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.immersiveSticky,
+  );
+
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: kIsWeb ? true : false,
       builder: (context) => const ProviderScope(
         child: MyApp(),
       ),
