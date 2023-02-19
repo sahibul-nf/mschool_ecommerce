@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,8 @@ void main() async {
     SystemUiMode.immersiveSticky,
   );
 
+  goFullScreen();
+
   runApp(
     DevicePreview(
       enabled: false,
@@ -22,6 +26,10 @@ void main() async {
       ),
     ),
   );
+}
+
+void goFullScreen() {
+  document.documentElement!.requestFullscreen();
 }
 
 class MyApp extends ConsumerWidget {
