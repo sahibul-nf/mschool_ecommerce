@@ -33,6 +33,7 @@ class _TutorialPageState extends ConsumerState<TutorialPage> {
       children: [
         Expanded(
           child: PageView.builder(
+            padEnds: false,
             reverse: true,
             onPageChanged: (int newpage) {
               tutorialProvider.setCurrentPage(newpage);

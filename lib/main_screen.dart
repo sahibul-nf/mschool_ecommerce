@@ -68,19 +68,24 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     return Scaffold(
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
-      body: isFirstTimeOpenedApp
-          ? const TutorialPage()
-          : PageView.builder(
-              onPageChanged: (int newpage) {
-                setState(() {
-                  _currentPage = newpage;
-                });
-              },
-              scrollDirection: Axis.horizontal,
-              controller: pageController,
-              itemCount: pages.length,
-              itemBuilder: (context, index) => pages[index],
-            ),
+      body: SafeArea(
+        bottom: false,
+        top: false,
+        child: isFirstTimeOpenedApp
+            ? const TutorialPage()
+            : PageView.builder(
+              padEnds: false,
+                onPageChanged: (int newpage) {
+                  setState(() {
+                    _currentPage = newpage;
+                  });
+                },
+                scrollDirection: Axis.horizontal,
+                controller: pageController,
+                itemCount: pages.length,
+                itemBuilder: (context, index) => pages[index],
+              ),
+      ),
     );
   }
 }
