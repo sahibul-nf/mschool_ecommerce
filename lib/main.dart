@@ -11,14 +11,13 @@ void main() async {
 
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.immersiveSticky,
-    overlays: [],
-  ).then(
-    (_) => runApp(
-      DevicePreview(
-        enabled: false,
-        builder: (context) => const ProviderScope(
-          child: MyApp(),
-        ),
+  );
+
+  runApp(
+    DevicePreview(
+      enabled: false,
+      builder: (context) => const ProviderScope(
+        child: MyApp(),
       ),
     ),
   );
