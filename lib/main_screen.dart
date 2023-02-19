@@ -69,8 +69,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
       body: SafeArea(
-        top: false,
-        bottom: false,
         child: isFirstTimeOpenedApp
             ? const TutorialPage()
             : PageView.builder(
