@@ -1,7 +1,4 @@
-import 'dart:html';
-
 import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -16,8 +13,6 @@ void main() async {
     SystemUiMode.immersiveSticky,
   );
 
-  goFullScreen();
-
   runApp(
     DevicePreview(
       enabled: false,
@@ -26,10 +21,6 @@ void main() async {
       ),
     ),
   );
-}
-
-void goFullScreen() {
-  document.documentElement!.requestFullscreen();
 }
 
 class MyApp extends ConsumerWidget {
