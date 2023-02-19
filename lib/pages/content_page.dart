@@ -1,14 +1,10 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:mschool_ecommerce/custom_tags.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/pages/content_detail_page.dart';
 import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mschool_ecommerce/widgets/markdown_widget.dart';
 
 class ContentPage extends ConsumerWidget {
   const ContentPage(
@@ -25,49 +21,59 @@ class ContentPage extends ConsumerWidget {
         MediaQuery.of(context).orientation == Orientation.portrait;
     final isDarkMode = ref.watch(darkModeProvider);
 
-    return Stack(
-      children: [
-        SingleChildScrollView(
-          physics: const NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          child: Column(
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: 20,
+        vertical: (isTour) ? 0 : 20,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Column(
             children: [
               const SizedBox(height: 20),
               Image.asset(
                 isDarkMode ? content.imageDark! : content.image!,
-                fit: BoxFit.cover,
+                fit: BoxFit.scaleDown,
                 height: MediaQuery.of(context).size.height *
-                    (isPortrait ? 0.4 : 0.5),
+                    (isPortrait ? 0.35 : 0.5),
               ),
               const SizedBox(height: 20),
-              SelectableText.rich(
-                TextSpan(
-                  text: content.title!,
-                  style: GoogleFonts.roboto(
-                    textStyle: TextStyle(
-                      fontFamily: "RobotoSerif",
-                      fontWeight: FontWeight.bold,
-                      color: Theme.of(context).primaryColor,
-                      height: 1.5,
-                      fontSize: 20,
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SelectableText.rich(
+                  TextSpan(
+                    text: content.title!,
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                        fontFamily: "RobotoSerif",
+                        fontWeight: FontWeight.bold,
+                        color: Theme.of(context).primaryColor,
+                        height: 1.3,
+                        fontSize: 20,
+                      ),
                     ),
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               if (content.subtitle!.isNotEmpty)
                 Row(
                   children: [
-                    SelectableText.rich(
-                      TextSpan(
-                        text: content.subtitle!,
-                        style: GoogleFonts.roboto(
-                          textStyle: const TextStyle(
-                            fontFamily: "RobotoSerif",
-                            fontWeight: FontWeight.bold,
-                            color: Color(0xffc16464),
-                            fontSize: 18,
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SelectableText.rich(
+                        TextSpan(
+                          text: content.subtitle!,
+                          style: GoogleFonts.roboto(
+                            textStyle: const TextStyle(
+                              fontFamily: "RobotoSerif",
+                              fontWeight: FontWeight.bold,
+                              height: 1.3,
+                              color: Color(0xffc16464),
+                              fontSize: 18,
+                            ),
                           ),
                         ),
                       ),
@@ -75,41 +81,26 @@ class ContentPage extends ConsumerWidget {
                   ],
                 ),
               if (content.subtitle!.isNotEmpty) const SizedBox(height: 10),
-              Center(
-                child: MarkdownBody(
-                  softLineBreak: true,
-                  selectable: true,
-                  data: content.shortDescription!,
-                  styleSheet: markdownStyleSheet(context),
-                  builders: markdownBuilders(context),
-                  inlineSyntaxes: customInlineSyntaxes,
-                  onTapLink: (text, href, title) {
-                    log('Link tapped: $text, $href, $title');
-                    launchUrl(Uri.parse(href!));
-                  },
-                ),
-              ),
+              MyMarkdownWidget(content.shortDescription!),
             ],
           ),
-        ),
-        // read more button
-        if (!isTour)
-          Align(
-            alignment: const Alignment(0, .95),
-            child: SizedBox(
-              height: 50,
-              // width: MediaQuery.of(context).size.width * 0.9,
-              child: ElevatedButton(
-                onPressed: () {
-                  if (!isTour) {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => ContentDetailPage(content),
-                      ),
-                    );
-                  }
-                },
+
+          if (!isTour) const SizedBox(height: 10),
+          // read more button
+          if (!isTour)
+            ElevatedButton(
+              onPressed: () {
+                if (!isTour) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ContentDetailPage(content),
+                    ),
+                  );
+                }
+              },
+              child: FittedBox(
+                fit: BoxFit.scaleDown,
                 child: Text(
                   "Read more",
                   style: GoogleFonts.roboto(
@@ -119,18 +110,18 @@ class ContentPage extends ConsumerWidget {
                     ),
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                  elevation: 0,
-                  padding: const EdgeInsets.symmetric(horizontal: 40),
-                ),
               ),
-            ),
-          )
-      ],
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.blue,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                elevation: 0,
+                padding: const EdgeInsets.symmetric(horizontal: 24),
+              ),
+            )
+        ],
+      ),
     );
   }
 }

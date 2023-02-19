@@ -18,9 +18,7 @@ class WelcomePage extends ConsumerWidget {
 
     final isDarkMode = ref.watch(darkModeProvider);
     return Scaffold(
-      primary: false,
       appBar: AppBar(
-        primary: false,
         shape: const Border(top: BorderSide(color: Colors.green, width: 3)),
         backgroundColor: isDarkMode ? AppColors.black : Colors.white,
         centerTitle: false,
