@@ -9,12 +9,6 @@ import 'providers/dark_mode_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(
-      systemNavigationBarColor: Colors.black.withOpacity(0.002),
-    ),
-  );
-
   SystemChrome.setEnabledSystemUIMode(
     SystemUiMode.immersiveSticky,
   );
