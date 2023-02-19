@@ -66,6 +66,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         ref.watch(tp.tutorialProvider.select((value) => value.firstTime));
 
     return Scaffold(
+      extendBody: true,
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
       body: SafeArea(
@@ -74,7 +75,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         child: isFirstTimeOpenedApp
             ? const TutorialPage()
             : PageView.builder(
-              padEnds: false,
                 onPageChanged: (int newpage) {
                   setState(() {
                     _currentPage = newpage;
