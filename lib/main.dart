@@ -16,7 +16,7 @@ void main() async {
 
   runApp(
     DevicePreview(
-      enabled: kIsWeb ? true : false,
+      enabled: false,
       builder: (context) => const ProviderScope(
         child: MyApp(),
       ),
