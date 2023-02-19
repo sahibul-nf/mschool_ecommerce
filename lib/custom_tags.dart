@@ -98,9 +98,7 @@ Map<String, MarkdownElementBuilder> markdownBuilders(BuildContext context) {
 
 MarkdownStyleSheet markdownStyleSheet(BuildContext context) {
   return MarkdownStyleSheet(
-    p: pStyle(
-      context,
-    ),
+    p: pStyle(context),
     a: pStyle(context, decoration: TextDecoration.underline),
     listBullet: pStyle(context, fontWeight: FontWeight.bold),
     listIndent: 16,
@@ -120,7 +118,7 @@ TextStyle pStyle(
       fontFamily: "RobotoSerif",
       fontWeight: fontWeight,
       color: color ?? Theme.of(context).primaryColor,
-      height: height ?? 1.5,
+      height: height ?? 1.3,
       fontSize: fontSize ?? 16,
       decoration: decoration,
     ),
