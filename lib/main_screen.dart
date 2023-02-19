@@ -67,6 +67,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
     return Scaffold(
       extendBody: true,
+      resizeToAvoidBottomInset: false,
       backgroundColor:
           isDarkMode ? AppColors.black : Theme.of(context).cardColor,
       body: isFirstTimeOpenedApp
