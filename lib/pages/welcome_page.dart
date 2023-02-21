@@ -120,8 +120,8 @@ class WelcomePage extends ConsumerWidget {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          width: 60,
-                          height: 60,
+                          width: 50,
+                          height: 50,
                         ),
                         const SizedBox(height: 15),
                         AutoSizeText(
@@ -141,8 +141,8 @@ class WelcomePage extends ConsumerWidget {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          width: 60,
-                          height: 60,
+                          width: 50,
+                          height: 50,
                         ),
                         const SizedBox(width: 15),
                         AutoSizeText(
@@ -165,7 +165,7 @@ class WelcomePage extends ConsumerWidget {
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: 30,
+                    fontSize: 28,
                   ),
                 ),
               ),
@@ -184,7 +184,7 @@ class WelcomePage extends ConsumerWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -193,7 +193,7 @@ class WelcomePage extends ConsumerWidget {
                     onTap: () => startLesson(),
                     child: Image.asset(
                       "assets/images/right-arrow-icon.png",
-                      width: 50,
+                      width: 45,
                     ),
                   ),
                 ],
@@ -208,7 +208,7 @@ class WelcomePage extends ConsumerWidget {
         ),
         color: Colors.blue,
         width: double.infinity,
-        height: 50,
+        height: 45,
         child: Align(
           alignment: Alignment.centerLeft,
           child: AutoSizeText(
