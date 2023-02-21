@@ -161,7 +161,7 @@ class WelcomePage extends ConsumerWidget {
                 "General Data Protection Regulation (GDPR) FlashCards",
                 maxLines: 4,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.oswald(
+                style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     color: Theme.of(context).primaryColor,
                     fontSize: 30,
@@ -174,22 +174,22 @@ class WelcomePage extends ConsumerWidget {
                   "Use this flashcards to learn and understand vocabulary, terms and data protection regulations.",
                   maxLines: 5,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.oswald(
-                      textStyle: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 18,
-                  )),
+                  style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.arrow_forward_sharp,
-                    size: 40,
-                    color: Color(0xffF16623),
-                  )
+                children: [
+                  Image.asset(
+                    "assets/images/right-arrow-icon.png",
+                    width: 50,
+                  ),
                 ],
               ),
             ],
