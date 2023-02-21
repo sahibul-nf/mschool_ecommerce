@@ -33,7 +33,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       DeviceOrientation.portraitDown,
     ]);
 
-    pages = [const WelcomePage()];
+    pages = [WelcomePage(startLesson)];
     pageController = PageController(initialPage: _currentPage);
 
     loadData();
@@ -51,6 +51,13 @@ class _MainScreenState extends ConsumerState<MainScreen> {
     setState(() {
       pages.addAll(list);
     });
+  }
+
+  void startLesson() {
+    pageController.nextPage(
+      duration: const Duration(milliseconds: 500),
+      curve: Curves.ease,
+    );
   }
 
   @override

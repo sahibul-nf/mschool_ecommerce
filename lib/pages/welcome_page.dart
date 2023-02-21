@@ -6,8 +6,8 @@ import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
 import 'package:mschool_ecommerce/themes/colors.dart';
 
 class WelcomePage extends ConsumerWidget {
-  // final void Function() startLesson;
-  const WelcomePage({Key? key}) : super(key: key);
+  final void Function() startLesson;
+  const WelcomePage(this.startLesson, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -157,6 +157,7 @@ class WelcomePage extends ConsumerWidget {
                         ),
                       ],
                     ),
+              const SizedBox(height: 20),
               AutoSizeText(
                 "General Data Protection Regulation (GDPR) FlashCards",
                 maxLines: 4,
@@ -168,6 +169,7 @@ class WelcomePage extends ConsumerWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: AutoSizeText(
@@ -182,13 +184,17 @@ class WelcomePage extends ConsumerWidget {
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    "assets/images/right-arrow-icon.png",
-                    width: 50,
+                  InkWell(
+                    onTap: () => startLesson(),
+                    child: Image.asset(
+                      "assets/images/right-arrow-icon.png",
+                      width: 50,
+                    ),
                   ),
                 ],
               ),
