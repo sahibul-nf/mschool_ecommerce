@@ -10,7 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.leanBack,
+    SystemUiMode.immersiveSticky,
   );
 
   runApp(
