@@ -9,13 +9,13 @@ import 'providers/dark_mode_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  SystemChrome.setEnabledSystemUIMode(
-    SystemUiMode.immersiveSticky,
-  );
+  // SystemChrome.setEnabledSystemUIMode(
+  //   SystemUiMode.immersiveSticky,
+  // );
 
   runApp(
     DevicePreview(
-      enabled: true,
+      enabled: false,
       builder: (context) => const ProviderScope(
         child: MyApp(),
       ),

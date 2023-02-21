@@ -61,6 +61,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setEnabledSystemUIMode(
+      SystemUiMode.immersiveSticky,
+    );
+
     final isDarkMode = ref.watch(darkModeProvider);
     final isFirstTimeOpenedApp =
         ref.watch(tp.tutorialProvider.select((value) => value.firstTime));
