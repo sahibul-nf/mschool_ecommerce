@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:fullscreen/fullscreen.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/pages/content_page.dart';
 import 'package:mschool_ecommerce/pages/tutorial_page.dart';
@@ -29,10 +28,6 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   void initState() {
     super.initState();
-
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      FullScreen.enterFullScreen(FullScreenMode.EMERSIVE_STICKY);
-    });
 
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,

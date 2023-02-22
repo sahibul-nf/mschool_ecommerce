@@ -9,9 +9,9 @@ import 'providers/dark_mode_provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  // SystemChrome.setEnabledSystemUIMode(
-  //   SystemUiMode.immersiveSticky,
-  // );
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.immersiveSticky,
+  );
 
   runApp(
     DevicePreview(
