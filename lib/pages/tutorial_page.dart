@@ -46,7 +46,7 @@ class _TutorialPageState extends ConsumerState<TutorialPage> {
 
         // skip button and smooth page indicator
         Container(
-          height: 50,
+          height: 45,
           color: Colors.grey[200],
           padding: const EdgeInsets.symmetric(horizontal: 20),
           child: Row(

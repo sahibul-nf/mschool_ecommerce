@@ -6,8 +6,8 @@ import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
 import 'package:mschool_ecommerce/themes/colors.dart';
 
 class WelcomePage extends ConsumerWidget {
-  // final void Function() startLesson;
-  const WelcomePage({Key? key}) : super(key: key);
+  final void Function() startLesson;
+  const WelcomePage(this.startLesson, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -24,7 +24,6 @@ class WelcomePage extends ConsumerWidget {
         centerTitle: false,
         titleSpacing: 0,
         shadowColor: Theme.of(context).shadowColor,
-        elevation: 1,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
@@ -110,7 +109,7 @@ class WelcomePage extends ConsumerWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40),
+          padding: const EdgeInsets.symmetric(vertical: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -120,12 +119,12 @@ class WelcomePage extends ConsumerWidget {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          width: 60,
-                          height: 60,
+                          width: 55,
+                          height: 55,
                         ),
                         const SizedBox(height: 15),
-                        AutoSizeText(
-                          'Welcome',
+                        Text(
+                          'Willkommen',
                           style: GoogleFonts.roboto(
                             textStyle: TextStyle(
                               color: Theme.of(context).primaryColor,
@@ -141,12 +140,12 @@ class WelcomePage extends ConsumerWidget {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          width: 60,
-                          height: 60,
+                          width: 55,
+                          height: 55,
                         ),
                         const SizedBox(width: 15),
                         AutoSizeText(
-                          'Welcome',
+                          'Willkommen',
                           style: GoogleFonts.roboto(
                             textStyle: TextStyle(
                               color: Theme.of(context).primaryColor,
@@ -157,39 +156,49 @@ class WelcomePage extends ConsumerWidget {
                         ),
                       ],
                     ),
-              AutoSizeText(
-                "General Data Protection Regulation (GDPR) FlashCards",
-                maxLines: 4,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.oswald(
-                  textStyle: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 30,
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: Text(
+                  "Kaufleute eCommerce Prüfungsfragen FalshCards",
+                  maxLines: 4,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 26,
+                    ),
                   ),
                 ),
               ),
+              const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: AutoSizeText(
-                  "Use this flashcards to learn and understand vocabulary, terms and data protection regulations.",
+                child: Text(
+                  "Nutze diese Lernkarten, um Begriffe, Definitionen und den Kontext der wichtigsten Themen zu lernen und zu verstehen.",
                   maxLines: 5,
                   textAlign: TextAlign.center,
-                  style: GoogleFonts.oswald(
-                      textStyle: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 18,
-                  )),
+                  style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 18,
+                    ),
+                  ),
                 ),
               ),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
-                children: const [
-                  Icon(
-                    Icons.arrow_forward_sharp,
-                    size: 40,
-                    color: Color(0xffF16623),
-                  )
+                children: [
+                  InkWell(
+                    onTap: () => startLesson(),
+                    child: Image.asset(
+                      "assets/images/right-arrow-icon.png",
+                      width: 45,
+                    ),
+                  ),
+                  const SizedBox(width: 10),
                 ],
               ),
             ],
@@ -202,18 +211,16 @@ class WelcomePage extends ConsumerWidget {
         ),
         color: Colors.blue,
         width: double.infinity,
-        height: 50,
+        height: 45,
         child: Align(
           alignment: Alignment.centerLeft,
           child: AutoSizeText(
-            "General Data Protection Regulation (GDPR)",
+            "Kaufleute eCommerce",
             maxLines: 1,
-            style: GoogleFonts.robotoSlab(
-              textStyle: GoogleFonts.robotoSlab(
-                textStyle: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
+            style: GoogleFonts.roboto(
+              textStyle: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),

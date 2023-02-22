@@ -37,7 +37,6 @@ dependencies:
   flutter_markdown: ^0.6.14
   flutter_riverpod: ^1.0.0
   google_fonts: ^2.1.0
-  # markdown_widget: ^2.0.0+1
   shared_preferences: ^2.0.9
   smooth_page_indicator: ^1.0.0+2
   styled_text: ^5.0.0+1
@@ -61,16 +60,6 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    # - assets/images/view.png
-    # - assets/images/slideone.png
-    # - assets/images/backPortrait.png
-    # - assets/images/backLandscape.png
-    # - assets/images/icon-01.png
-    # - assets/images/icon-02.png
-    # - assets/images/icon-03.png
-    # - assets/images/icon-04.png
-    # - assets/images/Graphik.png
-    # - assets/slides.json
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
   # For details regarding adding assets from package dependencies, see
@@ -80,12 +69,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
+  fonts:
+    - family: RobotoSerif
+      fonts:
+        - asset: assets/fonts/robotoserif.ttf
+          style: normal
   #   - family: Trajan Pro
   #     fonts:
   #       - asset: fonts/TrajanPro.ttf
