@@ -216,10 +216,10 @@ class WelcomePage extends ConsumerWidget {
         child: Align(
           alignment: Alignment.centerLeft,
           child: AutoSizeText(
-            "General Data Protection Regulation (GDPR)",
+            "Kaufleute eCommerce",
             maxLines: 1,
-            style: GoogleFonts.robotoSlab(
-              textStyle: GoogleFonts.robotoSlab(
+            style: GoogleFonts.roboto(
+              textStyle: GoogleFonts.roboto(
                 textStyle: const TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
