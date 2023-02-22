@@ -36,8 +36,8 @@ dependencies:
     sdk: flutter
   flutter_markdown: ^0.6.14
   flutter_riverpod: ^1.0.0
+  fullscreen: ^1.0.3
   google_fonts: ^2.1.0
-  # markdown_widget: ^2.0.0+1
   shared_preferences: ^2.0.9
   smooth_page_indicator: ^1.0.0+2
   styled_text: ^5.0.0+1
