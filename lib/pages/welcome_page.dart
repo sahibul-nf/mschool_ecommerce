@@ -24,7 +24,6 @@ class WelcomePage extends ConsumerWidget {
         centerTitle: false,
         titleSpacing: 0,
         shadowColor: Theme.of(context).shadowColor,
-        elevation: 1,
         title: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
@@ -124,7 +123,7 @@ class WelcomePage extends ConsumerWidget {
                           height: 55,
                         ),
                         const SizedBox(height: 15),
-                        AutoSizeText(
+                        Text(
                           'Willkommen',
                           style: GoogleFonts.roboto(
                             textStyle: TextStyle(
@@ -146,7 +145,7 @@ class WelcomePage extends ConsumerWidget {
                         ),
                         const SizedBox(width: 15),
                         AutoSizeText(
-                          'Welcome',
+                          'Willkommen',
                           style: GoogleFonts.roboto(
                             textStyle: TextStyle(
                               color: Theme.of(context).primaryColor,
@@ -160,7 +159,7 @@ class WelcomePage extends ConsumerWidget {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: AutoSizeText(
+                child: Text(
                   "Kaufleute eCommerce Prüfungsfragen FalshCards",
                   maxLines: 4,
                   textAlign: TextAlign.center,
@@ -175,7 +174,7 @@ class WelcomePage extends ConsumerWidget {
               const SizedBox(height: 20),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
-                child: AutoSizeText(
+                child: Text(
                   "Nutze diese Lernkarten, um Begriffe, Definitionen und den Kontext der wichtigsten Themen zu lernen und zu verstehen.",
                   maxLines: 5,
                   textAlign: TextAlign.center,
