@@ -157,7 +157,7 @@ class WelcomePage extends ConsumerWidget {
                         ),
                       ],
                     ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 30),
               AutoSizeText(
                 "General Data Protection Regulation (GDPR) FlashCards",
                 maxLines: 4,
@@ -165,7 +165,7 @@ class WelcomePage extends ConsumerWidget {
                 style: GoogleFonts.roboto(
                   textStyle: TextStyle(
                     color: Theme.of(context).primaryColor,
-                    fontSize: 28,
+                    fontSize: 26,
                   ),
                 ),
               ),
