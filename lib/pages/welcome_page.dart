@@ -219,11 +219,9 @@ class WelcomePage extends ConsumerWidget {
             "Kaufleute eCommerce",
             maxLines: 1,
             style: GoogleFonts.roboto(
-              textStyle: GoogleFonts.roboto(
-                textStyle: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.w500,
-                ),
+              textStyle: const TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
