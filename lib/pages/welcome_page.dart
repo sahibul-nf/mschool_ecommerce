@@ -120,12 +120,12 @@ class WelcomePage extends ConsumerWidget {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          width: 50,
-                          height: 50,
+                          width: 55,
+                          height: 55,
                         ),
                         const SizedBox(height: 15),
                         AutoSizeText(
-                          'Welcome',
+                          'Willkommen',
                           style: GoogleFonts.roboto(
                             textStyle: TextStyle(
                               color: Theme.of(context).primaryColor,
@@ -141,8 +141,8 @@ class WelcomePage extends ConsumerWidget {
                       children: [
                         Image.asset(
                           'assets/images/logo.png',
-                          width: 50,
-                          height: 50,
+                          width: 55,
+                          height: 55,
                         ),
                         const SizedBox(width: 15),
                         AutoSizeText(
@@ -158,14 +158,17 @@ class WelcomePage extends ConsumerWidget {
                       ],
                     ),
               const SizedBox(height: 20),
-              AutoSizeText(
-                "General Data Protection Regulation (GDPR) FlashCards",
-                maxLines: 4,
-                textAlign: TextAlign.center,
-                style: GoogleFonts.roboto(
-                  textStyle: TextStyle(
-                    color: Theme.of(context).primaryColor,
-                    fontSize: 26,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 30),
+                child: AutoSizeText(
+                  "Kaufleute eCommerce Prüfungsfragen FalshCards",
+                  maxLines: 4,
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.roboto(
+                    textStyle: TextStyle(
+                      color: Theme.of(context).primaryColor,
+                      fontSize: 26,
+                    ),
                   ),
                 ),
               ),
@@ -173,7 +176,7 @@ class WelcomePage extends ConsumerWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: AutoSizeText(
-                  "Use this flashcards to learn and understand vocabulary, terms and data protection regulations.",
+                  "Nutze diese Lernkarten, um Begriffe, Definitionen und den Kontext der wichtigsten Themen zu lernen und zu verstehen.",
                   maxLines: 5,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.roboto(
