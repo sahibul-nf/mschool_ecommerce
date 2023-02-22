@@ -110,7 +110,7 @@ class WelcomePage extends ConsumerWidget {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 40),
+          padding: const EdgeInsets.symmetric(vertical: 30),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -157,7 +157,7 @@ class WelcomePage extends ConsumerWidget {
                         ),
                       ],
                     ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               AutoSizeText(
                 "General Data Protection Regulation (GDPR) FlashCards",
                 maxLines: 4,
@@ -184,7 +184,7 @@ class WelcomePage extends ConsumerWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -196,6 +196,7 @@ class WelcomePage extends ConsumerWidget {
                       width: 45,
                     ),
                   ),
+                  const SizedBox(width: 10),
                 ],
               ),
             ],
