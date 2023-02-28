@@ -31,16 +31,12 @@ class ContentPage extends ConsumerWidget {
           Expanded(
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
                 Image.asset(
                   isDarkMode ? content.imageDark! : content.image!,
                   fit: BoxFit.scaleDown,
                   height: MediaQuery.of(context).size.height *
-                      (isPortrait
-                          ? isTour
-                              ? 0.4
-                              : 0.35
-                          : 0.5),
+                      (isTour ? 0.35 : 0.3),
                 ),
                 const SizedBox(height: 20),
                 FittedBox(
@@ -55,15 +51,6 @@ class ContentPage extends ConsumerWidget {
                         height: 1.3,
                         fontSize: smallScreen(context) ? 20 : 22,
                       ),
-                      // style: GoogleFonts.roboto(
-                      //   textStyle: TextStyle(
-                      //     fontFamily: "RobotoSerif",
-                      //     fontWeight: FontWeight.bold,
-                      //     color: Theme.of(context).primaryColor,
-                      //     height: 1.3,
-                      //     fontSize: 22,
-                      //   ),
-                      // ),
                     ),
                     textAlign: TextAlign.center,
                   ),
@@ -94,7 +81,6 @@ class ContentPage extends ConsumerWidget {
               ],
             ),
           ),
-          // if (!isTour) const Spacer(),
           // read more button
           if (!isTour)
             Column(
