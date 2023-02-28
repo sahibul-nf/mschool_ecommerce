@@ -10,13 +10,12 @@ TextStyle pStyle(
   double? fontSize,
   double? height,
 }) {
-  
   return GoogleFonts.roboto(
     textStyle: TextStyle(
       fontFamily: "RobotoSerif",
       fontWeight: fontWeight,
       color: color ?? Theme.of(context).primaryColor,
-      height: height ?? 1.5,
+      height: height ?? (smallScreen(context) ? 1.3 : 1.5),
       fontSize: fontSize ?? (smallScreen(context) ? 16 : 18),
       decoration: decoration,
     ),
