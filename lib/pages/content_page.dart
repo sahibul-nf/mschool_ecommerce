@@ -1,4 +1,3 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -28,59 +27,58 @@ class ContentPage extends ConsumerWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Column(
         children: [
-          Expanded(
-            child: Column(
-              children: [
-                const SizedBox(height: 40),
-                Image.asset(
-                  isDarkMode ? content.imageDark! : content.image!,
-                  fit: BoxFit.scaleDown,
-                  height: MediaQuery.of(context).size.height *
-                      (isTour ? 0.35 : 0.3),
-                ),
-                const SizedBox(height: 20),
-                FittedBox(
-                  fit: BoxFit.scaleDown,
-                  child: AutoSizeText.rich(
-                    TextSpan(
-                      text: content.title!,
-                      style: pStyle(
-                        context,
-                        color: Theme.of(context).primaryColor,
-                        fontWeight: FontWeight.bold,
-                        height: 1.3,
-                        fontSize: smallScreen(context) ? 20 : 22,
-                      ),
+          Column(
+            children: [
+              const SizedBox(height: 40),
+              Image.asset(
+                isDarkMode ? content.imageDark! : content.image!,
+                fit: BoxFit.scaleDown,
+                height:
+                    MediaQuery.of(context).size.height * (isTour ? 0.35 : 0.3),
+              ),
+              const SizedBox(height: 20),
+              FittedBox(
+                fit: BoxFit.scaleDown,
+                child: SelectableText.rich(
+                  TextSpan(
+                    text: content.title!,
+                    style: pStyle(
+                      context,
+                      color: Theme.of(context).primaryColor,
+                      fontWeight: FontWeight.bold,
+                      height: 1.3,
+                      fontSize: smallScreen(context) ? 20 : 22,
                     ),
-                    textAlign: TextAlign.center,
                   ),
+                  textAlign: TextAlign.center,
                 ),
-                const SizedBox(height: 10),
-                if (content.subtitle!.isNotEmpty)
-                  Row(
-                    children: [
-                      FittedBox(
-                        fit: BoxFit.scaleDown,
-                        child: AutoSizeText.rich(
-                          TextSpan(
-                            text: content.subtitle!,
-                            style: pStyle(
-                              context,
-                              fontWeight: FontWeight.bold,
-                              color: const Color(0xffc16464),
-                              height: 1.3,
-                              fontSize: smallScreen(context) ? 18 : 20,
-                            ),
+              ),
+              const SizedBox(height: 10),
+              if (content.subtitle!.isNotEmpty)
+                Row(
+                  children: [
+                    FittedBox(
+                      fit: BoxFit.scaleDown,
+                      child: SelectableText.rich(
+                        TextSpan(
+                          text: content.subtitle!,
+                          style: pStyle(
+                            context,
+                            fontWeight: FontWeight.bold,
+                            color: const Color(0xffc16464),
+                            height: 1.3,
+                            fontSize: smallScreen(context) ? 18 : 20,
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                if (content.subtitle!.isNotEmpty) const SizedBox(height: 8),
-                MyMarkdownWidget(content.shortDescription!),
-              ],
-            ),
+                    ),
+                  ],
+                ),
+              if (content.subtitle!.isNotEmpty) const SizedBox(height: 8),
+              MyMarkdownWidget(content.shortDescription!),
+            ],
           ),
+          const Spacer(),
           // read more button
           if (!isTour)
             Column(
