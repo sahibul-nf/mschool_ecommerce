@@ -32,7 +32,7 @@ class ContentPage extends ConsumerWidget {
                 isDarkMode ? content.imageDark! : content.image!,
                 fit: BoxFit.scaleDown,
                 height:
-                    MediaQuery.of(context).size.height * 0.35,
+                    MediaQuery.of(context).size.height * (isTour ? 0.35 : 0.3),
               ),
               const SizedBox(height: 20),
               FittedBox(
