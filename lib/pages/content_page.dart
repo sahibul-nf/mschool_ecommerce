@@ -19,8 +19,6 @@ class ContentPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     final isDarkMode = ref.watch(darkModeProvider);
 
     return Container(
