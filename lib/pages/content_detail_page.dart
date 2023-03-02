@@ -19,8 +19,6 @@ class ContentDetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    bool isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     final isDarkMode = ref.watch(darkModeProvider);
 
     return Scaffold(
@@ -38,8 +36,7 @@ class ContentDetailPage extends ConsumerWidget {
             Image.asset(
               isDarkMode ? content.imageDark! : content.image!,
               fit: BoxFit.cover,
-              height:
-                  MediaQuery.of(context).size.height * (isPortrait ? 0.4 : 0.5),
+              height: MediaQuery.of(context).size.height * 0.4,
             ),
             const SizedBox(height: 20),
             Text(
@@ -55,7 +52,7 @@ class ContentDetailPage extends ConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 16),
             if (content.subtitle!.isNotEmpty)
               Row(
                 children: [

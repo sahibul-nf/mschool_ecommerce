@@ -205,27 +205,6 @@ class WelcomePage extends ConsumerWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        padding: const EdgeInsets.only(
-          left: 20,
-        ),
-        color: Colors.blue,
-        width: double.infinity,
-        height: 45,
-        child: Align(
-          alignment: Alignment.centerLeft,
-          child: AutoSizeText(
-            "Kaufleute eCommerce",
-            maxLines: 1,
-            style: GoogleFonts.roboto(
-              textStyle: const TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 }

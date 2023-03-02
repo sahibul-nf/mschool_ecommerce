@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:markdown/markdown.dart' as md;
+import 'package:mschool_ecommerce/themes/text.dart';
 import 'package:mschool_ecommerce/widgets/modal.dart';
 
 class CustomElementBuilder extends MarkdownElementBuilder {
@@ -102,26 +103,6 @@ MarkdownStyleSheet markdownStyleSheet(BuildContext context) {
     a: pStyle(context, decoration: TextDecoration.underline),
     listBullet: pStyle(context, fontWeight: FontWeight.bold),
     listIndent: 16,
-  );
-}
-
-TextStyle pStyle(
-  BuildContext context, {
-  Color? color,
-  TextDecoration? decoration,
-  FontWeight fontWeight = FontWeight.normal,
-  double? fontSize,
-  double? height,
-}) {
-  return GoogleFonts.roboto(
-    textStyle: TextStyle(
-      fontFamily: "RobotoSerif",
-      fontWeight: fontWeight,
-      color: color ?? Theme.of(context).primaryColor,
-      height: height ?? 1.3,
-      fontSize: fontSize ?? 16,
-      decoration: decoration,
-    ),
   );
 }
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html translate="no" class="notranslate">
 
 <head>
   <!--
@@ -20,8 +20,9 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="A new Flutter project.">
+  <meta name="google" content="notranslate" /> <!-- Disable Google Translate -->
+  <meta name="robots" content="notranslate" /> <!-- Disable Google Translate -->
 
-    
   <!-- Display PWA fullscreen -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -48,16 +49,30 @@
   <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" href="view.png"/>
+  <link rel="icon" type="image/png" href="view.png" />
 
   <!-- Favicon -->
   <!-- <link rel="icon" type="image/png" href="favicon.png" /> -->
 
-  <title>mschool_ecommerce</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Condensed&family=Roboto+Serif">
+
+  <title>mschool ecommerce</title>
   <link rel="manifest" href="manifest.json">
 </head>
 
 <body>
+  <div class="center" translate="no">
+    <img src="Icon-512.png" class="logo"/>
+    <div style="height: 120px;"></div>
+    <!-- text "Accelerated Learning" -->
+    <div  style="font-family: Roboto Serif; font-size: 20px; color: #000000; text-align: center;">Accelerated<br>Learning
+    </div>
+    <div style="height: 150px;"></div>
+    <!-- app name "M-School" -->
+    <div style="font-family: Roboto Condensed; font-size: 20px; font-weight: bold; color: #000000; text-align: center;">mobile</div>
+    <div style="font-family: Roboto Condensed; font-size: 30px; font-weight: bold; color: #000000; text-align: center;">school</div>
+  </div>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
