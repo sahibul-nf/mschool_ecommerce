@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "mschool",
+    "short_name": "mschool",
     "start_url": "index.html",
     "display": "fullscreen",
     "background_color": "white",
