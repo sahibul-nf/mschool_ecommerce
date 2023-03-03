@@ -13,16 +13,18 @@ class ContentPage extends ConsumerWidget {
     this.content, {
     Key? key,
     this.isTour = false,
+    this.pageIndex,
   }) : super(key: key);
   final Content content;
   final bool isTour;
+  final int? pageIndex;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final isDarkMode = ref.watch(darkModeProvider);
 
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 24),
       child: Column(
         children: [
           Column(
@@ -51,7 +53,7 @@ class ContentPage extends ConsumerWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
               if (content.subtitle!.isNotEmpty)
                 Row(
                   children: [
@@ -72,13 +74,13 @@ class ContentPage extends ConsumerWidget {
                     ),
                   ],
                 ),
-              if (content.subtitle!.isNotEmpty) const SizedBox(height: 8),
+              if (content.subtitle!.isNotEmpty) const SizedBox(height: 10),
               MyMarkdownWidget(content.shortDescription!),
             ],
           ),
           const Spacer(),
           // read more button
-          if (!isTour)
+          if (!isTour && pageIndex != 0)
             Column(
               children: [
                 ElevatedButton(

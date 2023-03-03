@@ -46,7 +46,10 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
     var list = <Widget>[];
     for (var v in (jsonResult as List)) {
-      list.add(ContentPage(Content.fromJson(v)));
+      list.add(ContentPage(
+        Content.fromJson(v),
+        pageIndex: list.length,
+      ));
     }
 
     setState(() {

@@ -30,7 +30,7 @@ class ContentDetailPage extends ConsumerWidget {
         backgroundColor: isDarkMode ? AppColors.black : Colors.white,
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
         child: Column(
           children: [
             Image.asset(
@@ -52,7 +52,7 @@ class ContentDetailPage extends ConsumerWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 30),
             if (content.subtitle!.isNotEmpty)
               Row(
                 children: [
