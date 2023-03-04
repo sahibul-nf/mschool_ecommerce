@@ -8,6 +8,7 @@ import 'package:mschool_ecommerce/custom_tags.dart';
 import 'package:mschool_ecommerce/models/content.dart';
 import 'package:mschool_ecommerce/providers/dark_mode_provider.dart';
 import 'package:mschool_ecommerce/themes/colors.dart';
+import 'package:mschool_ecommerce/themes/utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContentDetailPage extends ConsumerWidget {
@@ -36,34 +37,33 @@ class ContentDetailPage extends ConsumerWidget {
             Image.asset(
               isDarkMode ? content.imageDark! : content.image!,
               fit: BoxFit.cover,
-              height: MediaQuery.of(context).size.height * 0.4,
+              height: MediaQuery.of(context).size.height * 0.35,
             ),
             const SizedBox(height: 20),
             Text(
               content.title!,
               textAlign: TextAlign.center,
-              style: GoogleFonts.roboto(
+              style: GoogleFonts.oswald(
                 textStyle: TextStyle(
-                  fontFamily: "RobotoSerif",
-                  fontWeight: FontWeight.bold,
                   color: Theme.of(context).primaryColor,
-                  height: 1.5,
-                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                  height: 1.3,
+                  fontSize: smallScreen(context) ? 20 : 26,
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             if (content.subtitle!.isNotEmpty)
               Row(
                 children: [
                   Text(
                     content.subtitle!,
-                    style: GoogleFonts.roboto(
-                      textStyle: const TextStyle(
-                        fontFamily: "RobotoSerif",
+                    style: GoogleFonts.oswald(
+                      textStyle: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Color(0xffc16464),
-                        fontSize: 18,
+                        color: const Color(0xffc16464),
+                        height: 1.3,
+                        fontSize: smallScreen(context) ? 18 : 21,
                       ),
                     ),
                   ),
